@@ -1,0 +1,25 @@
+[package]
+name = "keepachangelog"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+bearask = "0.4.1"
+chrono = { version = "0.4.44", features = ["serde"] }
+clap = { version = "4.5.60", features = ["derive"] }
+color-eyre = "0.6.5"
+miette = { version = "7.6.0", features = ["fancy"] }
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.149"
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2"
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.61.2", features = [
+    "Win32_Foundation",
+    "Win32_Storage_FileSystem",
+    "Win32_System_Console",
+    "Win32_System_IO",
+    "Win32_Security",
+] }
